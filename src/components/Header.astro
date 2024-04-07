@@ -1,0 +1,311 @@
+---
+import logo from '/public/images/logo-igneas.png';
+---
+
+<script is:inline>
+    window.addEventListener('load', () => {
+        const btn_close_menu = document.getElementById('btnCloseMenu');
+        const btn_open_menu = document.getElementById('btnOpenMenu');
+        const nav_responsive = document.getElementById('navResponsive');
+        const menu_item = document.querySelectorAll('.menu-res_item');
+    
+        var openMenu = false;
+
+        const openCloseMenu = () => {
+            if(openMenu){
+                nav_responsive.style.transform = 'translateY(-1500px)';
+                nav_responsive.style.opacity = '0';
+                openMenu = false;
+            } else {
+                nav_responsive.style.transform = 'translateY(0)';
+                nav_responsive.style.opacity = '1';
+                openMenu = true;
+            }
+        }
+
+        btn_close_menu.addEventListener('click', openCloseMenu);
+        btn_open_menu.addEventListener('click', openCloseMenu);
+        menu_item.forEach(item => {
+            item.addEventListener('click', openCloseMenu);
+        })
+    })
+</script>
+
+<header class="header">
+    <div class="logo">
+        <img class="logo-img" src={logo.src} alt="logo de cooperativa IGNEAS">
+    </div>
+
+    <nav class="nav">
+        <ul class="nav-menu">
+            <li class="menu_item">
+                <a href="" class="menu_item-link">Inicio</a>
+            </li>
+            <li class="menu_item">
+                <a href="" class="menu_item-link">Blog</a>
+            </li>
+            <li class="menu_item">
+                <a href="" class="menu_item-link">Galería</a>
+            </li>
+            <li class="menu_item">
+                <a href="" class="menu_item-link">Tienda</a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav id="navResponsive" class="nav-responsive">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="btnCloseMenu" class="icon-close" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+        </svg>
+        <ul class="nav-res_menu">
+            <li class="menu-res_item">
+                <a href="" class="menu-res_item-link">Inicio</a>
+            </li>
+            <li class="menu-res_item">
+                <a href="" class="menu-res_item-link">Blog</a>
+            </li>
+            <li class="menu-res_item">
+                <a href="" class="menu-res_item-link">Galería</a>
+            </li>
+            <li class="menu-res_item">
+                <a href="" class="menu-res_item-link">Tienda</a>
+            </li>
+            <li class="menu-res_item">
+                <button class="menu-res_item-login">Iniciar Sesión</button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dropdown-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="btnOpenMenu" class="icon-hamburguer" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+    </div>
+
+
+    <div class="login-zone">
+        <button class="btn-login">Iniciar Sesión</button>
+    </div>
+</header>
+
+<style>
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding: 0 15px;
+        background: var(--azul);
+        background: transparent;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-img{
+        width: 100px;
+    }
+
+
+    /* SMARTPHONE */
+    @media screen and (min-width: 375px) and (max-width: 767px){
+
+        .header{
+            background: var(--azul);
+        }
+
+        .nav{
+            display: none;
+        }
+
+        .login-zone{
+            display: none;
+        }
+
+        .nav-responsive{
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateY(-1500px);
+            width: 100vw;
+            height: 100vh;
+            background:linear-gradient(
+                to bottom,
+                var(--magenta),
+                var(--naranja),
+                var(--amarillo)
+            );
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s transform, 0.3s opacity;
+        }
+
+        .icon-close{
+            width: 50px;
+            margin: 20px;
+            color: var(--azul);
+            align-self: end;
+        }
+
+        .nav-res_menu{
+            margin: 20px 0 0 0;
+            list-style-type: none;
+            font-size: 1.4rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-res_item{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu-res_item-link{
+            text-decoration: none;
+            color: var(--azul);
+            text-align: center;
+            width: 100%;
+            padding: 10px 0; 
+        }
+
+        .menu-res_item-login{
+            font-size: 1.4rem;
+            color: #fffff0;
+            border: none;
+            border-radius: 10px;
+            background: var(--azul);
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+    
+        .icon-hamburguer{
+            width: 50px;
+            color: #fff;
+        }
+    }
+
+    /* TABLETS */
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        
+        .header{
+            background: var(--azul);
+        }
+
+        .nav, .login-zone{
+            display: none;
+        }
+
+        .nav-responsive{
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateY(-1500px);
+            width: 100vw;
+            height: 100vh;
+            background:linear-gradient(
+                to bottom,
+                var(--magenta),
+                var(--naranja),
+                var(--amarillo)
+            );
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s transform, 0.3s opacity;
+        }
+
+        .icon-close{
+            width: 50px;
+            margin: 20px;
+            color: var(--azul);
+            align-self: end;
+        }
+
+        .nav-res_menu{
+            margin: 20px 0 0 0;
+            list-style-type: none;
+            font-size: 1.4rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-res_item{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu-res_item-link{
+            text-decoration: none;
+            color: var(--azul);
+            text-align: center;
+            width: 100%;
+            padding: 10px 0; 
+        }
+
+        .menu-res_item-login{
+            font-size: 1.4rem;
+            color: #fffff0;
+            border: none;
+            border-radius: 10px;
+            background: var(--azul);
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+    
+        .icon-hamburguer{
+            width: 50px;
+            color: #fff;
+        }
+    }
+
+    /* DESKTOP */
+    @media screen and (min-width: 1024px){
+        .icon-hamburguer, .icon-close, .nav-responsive{
+            display: none;
+        }
+
+        .nav{
+            flex: 1;
+            display: flex;
+            justify-content: start;
+            padding: 0 40px;
+        }
+
+        .nav-menu{
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu_item-link{
+            text-decoration: none;
+            color: #fffff0;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s color;
+        }
+        .menu_item-link:hover{
+            color: var(--naranja);
+        }
+
+        .btn-login{
+            background: var(--naranja);
+            color: var(--azul);
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    }
+</style>
+
