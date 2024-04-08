@@ -42,14 +42,17 @@ import logo from '/public/images/logo-igneas.png';
                 <a href="" class="menu_item-link">Inicio</a>
             </li>
             <li class="menu_item">
+                <a href="" class="menu_item-link">Nosotros</a>
+            </li>
+            <li class="menu_item">
                 <a href="" class="menu_item-link">Blog</a>
             </li>
             <li class="menu_item">
                 <a href="" class="menu_item-link">Galería</a>
             </li>
-            <li class="menu_item">
+            <!-- <li class="menu_item">
                 <a href="" class="menu_item-link">Tienda</a>
-            </li>
+            </li> -->
         </ul>
     </nav>
 
@@ -62,14 +65,17 @@ import logo from '/public/images/logo-igneas.png';
                 <a href="" class="menu-res_item-link">Inicio</a>
             </li>
             <li class="menu-res_item">
+                <a href="" class="menu-res_item-link">Nosotros</a>
+            </li>
+            <li class="menu-res_item">
                 <a href="" class="menu-res_item-link">Blog</a>
             </li>
             <li class="menu-res_item">
                 <a href="" class="menu-res_item-link">Galería</a>
             </li>
-            <li class="menu-res_item">
+            <!-- <li class="menu-res_item">
                 <a href="" class="menu-res_item-link">Tienda</a>
-            </li>
+            </li> -->
             <li class="menu-res_item">
                 <button class="menu-res_item-login">Iniciar Sesión</button>
             </li>
@@ -94,10 +100,9 @@ import logo from '/public/images/logo-igneas.png';
         top: 0;
         left: 0;
         width: 100vw;
-        padding: 0 15px;
+        padding: 10px 15px;
         background: var(--azul);
         background: transparent;
-        font-weight: 500;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -113,7 +118,6 @@ import logo from '/public/images/logo-igneas.png';
     .logo-img{
         width: 100px;
     }
-
 
     /* SMARTPHONE */
     @media screen and (min-width: 375px) and (max-width: 767px){
@@ -150,7 +154,7 @@ import logo from '/public/images/logo-igneas.png';
 
         .icon-close{
             width: 50px;
-            margin: 20px;
+            margin: 30px 20px 0 0;
             color: var(--azul);
             align-self: end;
         }
@@ -178,7 +182,8 @@ import logo from '/public/images/logo-igneas.png';
         }
 
         .menu-res_item-login{
-            font-size: 1.4rem;
+            font-size: 16px;
+            font-weight: 500;
             color: #fffff0;
             border: none;
             border-radius: 10px;
@@ -224,7 +229,7 @@ import logo from '/public/images/logo-igneas.png';
 
         .icon-close{
             width: 50px;
-            margin: 20px;
+            margin: 30px 20px 0 0;
             color: var(--azul);
             align-self: end;
         }
@@ -277,7 +282,7 @@ import logo from '/public/images/logo-igneas.png';
             flex: 1;
             display: flex;
             justify-content: start;
-            padding: 0 40px;
+            padding: 0 80px;
         }
 
         .nav-menu{
@@ -289,22 +294,33 @@ import logo from '/public/images/logo-igneas.png';
         .menu_item-link{
             text-decoration: none;
             color: #fffff0;
-            font-size: 18px;
             font-weight: 500;
             transition: 0.3s color;
         }
         .menu_item-link:hover{
             color: var(--naranja);
+            text-shadow: 0 0 5px var(--naranja);
         }
 
         .btn-login{
             background: var(--naranja);
+            background: linear-gradient(
+                to right,
+                var(--amarillo),
+                var(--naranja),
+                var(--magenta)
+            );
             color: var(--azul);
             padding: 10px 15px;
             border: none;
             border-radius: 10px;
-            font-size: 18px;
+            box-shadow: 3px 3px 10px #000000;
+            font-size: 16px;
             cursor: pointer;
+            transition: 0.3s scale;
+        }
+        .btn-login:hover{
+            scale: 1.05;
         }
     }
 </style>
