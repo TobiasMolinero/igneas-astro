@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -15,15 +16,17 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/images/icono-igneas.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-	<Header />
+	  <Header />
     <slot />
+    <Footer />
   </body>
 </html>
+
 <style is:global>
 
 	@font-face {
@@ -40,10 +43,13 @@ const { title, description } = Astro.props;
 
   :root {
     scroll-behavior: smooth;
-	--azul: #000637;
-	--magenta: #ff0055;
-	--naranja: #ff551d;
-	--amarillo: #ffc52b;
+    scrollbar-width: thin;
+    scrollbar-color: #000637 transparent ;
+	  --azul: #000637;
+	  --magenta: #ff0055;
+	  --naranja: #ff551d;
+	  --amarillo: #ffc52b;
+    --fondo-blanco: #f2f2f2;
   }
 
   * {
@@ -53,4 +59,5 @@ const { title, description } = Astro.props;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
   }
+
 </style>

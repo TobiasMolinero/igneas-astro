@@ -1,12 +1,51 @@
 ---
 import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
+import FrameYoutube from '../components/FrameYoutube.astro';
 ---
 
 <Layout title="Cooperativa IGNEAS - Inicio" description='cooperativa igneas'>
 	<Hero />
+	<section class="intro-index">
+		<h2 class="intro-title">Cooperativa de trabajo, investigación y gestión, nacional y extranjera de las artes sociales</h2>
+	</section>
+	<div style="margin: 40px 0; display:grid; place-items: center;">
+		<FrameYoutube src="https://www.youtube.com/embed/Be8zqnIYZ48?si=2fEJv2hVI_cUFNiE"/>
+	</div>
 </Layout>
 
 <style>
-	
+	.intro-index{
+    	background: var(--fondo-blanco);
+    	padding: 80px 0;
+    	display: grid;
+    	place-items: center;
+    }
+
+    .intro-title{
+        width: 50%;
+        text-align: center;
+        color: var(--azul);
+    }
+
+    /* SMARTPHONE */
+    @media screen and (min-width: 375px) and (max-width: 767px){
+        .intro-index{
+            padding: 40px 10px;
+        }
+
+        .intro-title{
+            width: 100%;
+        }
+    }
+
+    /* TABLET */
+    @media screen and (min-width: 768px) and (max-width: 1023px){}
+
+    /* DESKTOP */
+    @media screen and (min-width: 1024px){
+        .intro-index{
+            padding: 40px 20px;
+        }
+    }
 </style>
