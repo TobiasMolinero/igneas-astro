@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroTitle from '../components/HeroTitle.astro';
+import Miembros from '../sections/Miembros.astro';
+---
+
+<Layout title="Conocé un poco mas sobre nosotros - Cooperativa IGNEAS" description='cooperativa igneas'>
+    <section class="us-banner">
+        <HeroTitle title='CONOCÉ A NUESTRO EQUIPO!'/>
+    </section>
+    <Miembros />
+</Layout>
+
+
+<style>
+
+    .us-banner{
+        background: var(--azul);
+        height: 100vh;
+        display: flex;
+        align-items: end;
+        padding: 40px;
+    }
+
+    .title{
+        margin-top: 300px;
+    }
+
+
+</style>
