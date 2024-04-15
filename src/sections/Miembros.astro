@@ -1,6 +1,6 @@
 ---
 import { MIEMBROS } from "../consts/members";
-import fuego from '/public/images/imagen-fuego.svg';
+// import fuego from '/public/images/imagen-fuego.svg';
 
 const membersList = MIEMBROS;
 ---
@@ -9,7 +9,6 @@ const membersList = MIEMBROS;
     {membersList.map(miembro => (
                 <article class="card">
                     <div class="img-card">
-                        <img class="bg-img" src={fuego.src} alt="Imagen de fondo de la foto del miembro en forma de fuego" />
                         <img class="img-member" src={miembro.image} alt={miembro.alt}/>
                     </div>
                     <div>
@@ -28,36 +27,20 @@ const membersList = MIEMBROS;
         flex-direction: column;
     }
 
-    .members > .card:nth-child(even){
-        background-color: red;
-    } 
-
     .card{
         padding: 80px 20px;
         display: flex;
     }
 
     .img-card{
-        width: 50%;
-        position: relative;
-    }
+        background: red;
 
-    .bg-img{
-        width: 300px;
-        position: absolute;
-        left: 20px;
-        bottom: -40px;
-        transform: rotate(15deg);
     }
 
     .img-member{
         border-radius: 0 0 100% 100%;
-        width: 250px;
+        width: 180px;
         filter: drop-shadow(0 0 2px black);
-        mask-image: linear-gradient(
-            black 99%,
-            transparent
-        );
         z-index: 5;
     }    
 </style>

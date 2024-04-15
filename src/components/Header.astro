@@ -8,9 +8,13 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
         const btn_open_menu = document.getElementById('btnOpenMenu');
         const header = document.getElementById('header');
         const nav_responsive = document.getElementById('navResponsive');
-        const menu_item = document.querySelectorAll('.menu-res_item');
+        const menu_item = document.querySelectorAll('.close-nav');
+        const item_blog = document.getElementById('item-blog');
+        const dropdown_blog = document.querySelector('.nav-res_dropdown-blog');
+        const icon_dropdown = document.getElementById('iconDropdown');
     
         let openMenu = false;
+        let showDropdownBlog = false;
     
         const openCloseMenu = () => {
             if(openMenu){
@@ -23,13 +27,34 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
                 openMenu = true;
             }
         }
+
+        const openCloseDropBlog = () => {
+            if(showDropdownBlog){
+                dropdown_blog.style.display = 'none';
+                icon_dropdown.style.transform = 'rotate(0deg)';
+                showDropdownBlog = false;
+            } else {
+                dropdown_blog.style.display = 'flex';
+                dropdown_blog.style.flexDirection = 'column';
+                dropdown_blog.style.gap = '10px';
+                icon_dropdown.style.transform = 'rotate(-90deg)';
+                showDropdownBlog = true;
+            }
+        }
     
-        btn_close_menu.addEventListener('click', openCloseMenu);
+        btn_close_menu.addEventListener('click', ()=> {
+            if(showDropdownBlog){
+                openCloseDropBlog();
+            }
+            openCloseMenu();
+        });
         btn_open_menu.addEventListener('click', openCloseMenu);
         menu_item.forEach(item => {
             item.addEventListener('click', openCloseMenu);
         })
     
+        item_blog.addEventListener('click', openCloseDropBlog);
+
         window.addEventListener("scroll", function() {
             // Obtener la posición actual del scroll
             var scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -41,6 +66,8 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
 
             }
         });
+
+
     })
 </script>
 
@@ -57,8 +84,26 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             <li class="menu_item">
                 <a href="/nosotros" class="menu_item-link">Nosotros</a>
             </li>
-            <li class="menu_item">
-                <a href="" class="menu_item-link">Blog</a>
+            <li class="menu_item item-blog">
+                <p class="menu_item-link">
+                    Blog
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="icon-dropdown" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </p>
+                <div class="container-dropdown-blog">
+                    <div class="dropdown-blog">
+                        <p>
+                            <a href="">Noticias</a>
+                        </p>
+                        <p>
+                            <a href="">Eventos</a>
+                        </p>
+                        <p>
+                            <a href="">Revista</a>
+                        </p>
+                    </div>
+                </div>
             </li>
             <li class="menu_item">
                 <a href="" class="menu_item-link">Galería</a>
@@ -75,15 +120,31 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
         </svg>
         <ul class="nav-res_menu">
             <li class="menu-res_item">
-                <a href="" class="menu-res_item-link">Inicio</a>
+                <a href="" class="menu-res_item-link close-nav">Inicio</a>
             </li>
             <li class="menu-res_item">
-                <a href="" class="menu-res_item-link">Nosotros</a>
+                <a href="" class="menu-res_item-link close-nav">Nosotros</a>
             </li>
-            <li class="menu-res_item">
-                <a href="" class="menu-res_item-link">Blog</a>
+            <li id="item-blog" class="menu-res_item res-item-blog">
+                <p class="menu-res_item-link">
+                    Blog
+                    <svg id="iconDropdown" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="icon-dropdown" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </p>
+                <div class="nav-res_dropdown-blog">
+                    <p>
+                        <a href="">Noticias</a>
+                    </p>
+                    <p>
+                        <a href="">Eventos</a>
+                    </p>
+                    <p>
+                        <a href="">Revista</a>
+                    </p>
+                </div>
             </li>
-            <li class="menu-res_item">
+            <li class="menu-res_item close-nav">
                 <a href="" class="menu-res_item-link">Galería</a>
             </li>
             <!-- <li class="menu-res_item">
@@ -194,6 +255,26 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             width: 100%;
             padding: 10px 0; 
         }
+    
+        .res-item-blog{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-res_dropdown-blog{
+            display: none;
+            animation: show_dropdown_blog_mobile 0.3s;
+        }
+
+        .nav-res_dropdown-blog > p{
+            font-size: 20px;
+        }
+
+        .nav-res_dropdown-blog > p a{
+            color: var(--azul);
+            text-decoration: none;
+        }
 
         .menu-res_item-login{
             font-size: 16px;
@@ -266,6 +347,26 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             padding: 10px 0; 
         }
 
+        .res-item-blog{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-res_dropdown-blog{
+            display: none;
+            animation: show_dropdown_blog_mobile 0.3s;
+        }
+
+        .nav-res_dropdown-blog > p{
+            font-size: 20px;
+        }
+
+        .nav-res_dropdown-blog > p a{
+            color: var(--azul);
+            text-decoration: none;
+        }
+
         .menu-res_item-login{
             font-size: 1.4rem;
             color: #fffff0;
@@ -301,6 +402,10 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             gap: 30px;
         }
 
+        .menu_item{
+            position: relative;
+        }
+        
         .menu_item-link{
             text-decoration: none;
             color: #fffff0;
@@ -310,6 +415,56 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
         .menu_item-link:hover{
             color: var(--naranja);
             text-shadow: 0 0 5px var(--naranja);
+        }
+
+        .container-dropdown-blog{
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: -100px;
+            padding-top: 20px;
+            animation: show_dropdown_blog 0.3s;
+        }
+
+        .dropdown-blog{
+            border-radius: 10px;
+            background: linear-gradient(
+                to bottom, 
+                var(--magenta),
+                var(--naranja),
+                var(--amarillo)
+            );
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 10px 20px;
+            box-shadow: 2px 2px 5px #00000080;
+        }
+
+        .item-blog{
+            cursor: pointer;
+        }
+
+        .item-blog:hover .container-dropdown-blog{
+            display: block;
+        }
+
+        .icon-dropdown{
+            transform: rotate(-90deg);
+            transition: 0.3s transform;
+        }
+
+        .item-blog:hover .icon-dropdown{
+            transform: rotate(0deg)
+        }
+
+        .dropdown-blog > p{
+            cursor: pointer;
+        }
+
+        .dropdown-blog > p a{
+            color: var(--azul);
+            text-decoration: none;
         }
 
         .btn-login{
@@ -331,6 +486,24 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
         }
         .btn-login:hover{
             scale: 1.05;
+        }
+    }
+
+    @keyframes show_dropdown_blog{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    @keyframes show_dropdown_blog_mobile{
+        from{
+            height: 0;
+        }
+        to{
+            height: 100px;
         }
     }
 </style>
