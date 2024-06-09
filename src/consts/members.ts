@@ -1,7 +1,7 @@
 import { type Member} from "../types/member";
-import foto_jessica from '/public/images/foto-jesi-sinfondo.webp';
-import foto_victoria from '/public/images/foto-viki-sinfondo.webp';
-import foto_majo from '/public/images/foto-majo-sinfondo.webp';
+import foto_jessica from '/public/images/foto-jesi.webp';
+import foto_victoria from '/public/images/foto-viki.webp';
+import foto_majo from '/public/images/foto-majo.webp';
 
 export const MIEMBROS: Member[] = [
     {

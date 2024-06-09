@@ -1,0 +1,57 @@
+---
+import FrameYoutube from '../components/FrameYoutube.astro';
+---
+
+<section class="episode">
+    <h2 class="episode-title">Mirá el último episodio de nuestro programa!</h2>
+    <div class="container-video" >
+        <FrameYoutube src="https://www.youtube.com/embed/nny647JjS0Q?si=gFDqYQkqgRWp-JDa"/>
+    </div>
+</section>
+
+<style>
+    .episode{
+        padding: 50px 50px 100px 50px;
+    }
+
+    .episode-title{
+        color: var(--azul);
+    }
+
+    .container-video{
+        margin-top: 50px;
+        display: grid;
+        place-items: center;
+    }
+
+    /* SMARTPHONE */
+    @media screen and (min-width: 375px) and (max-width: 767px){
+
+        .episode{
+            padding: 30px 30px 50px 30px;
+        }
+
+        .episode-title{
+            font-size: 25px;
+        }
+    }
+
+    /* TABLET */
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+
+        .episode{
+            padding: 30px 30px 50px 30px;
+        }
+
+        .episode-title{
+            font-size: 40px;
+        }
+    }
+
+    /* DESKTOP */
+    @media screen and (min-width: 1024px){
+        .episode-title{
+            font-size: 50px;
+        }
+    }
+</style>

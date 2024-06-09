@@ -1,33 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroTitle from '../components/HeroTitle.astro';
-import Miembros from '../sections/Miembros.astro';
+import HeroTitle from "../../components/HeroTitle.astro";
+import Layout from "../../layouts/Layout.astro";
+import LastNews from "../../sections/LastNews.astro";
 import fuego from '/public/images/imagen-fuego.svg';
 ---
 
-<Layout title="Conocé un poco mas sobre nosotros - Cooperativa IGNEAS" description='cooperativa igneas'>
-    <section class="us-banner">
-        <HeroTitle title='CONOCÉ A NUESTRO EQUIPO!'/>
+<Layout title="blog" description="blogs">
+    <section class="banner-blog">
+        <HeroTitle title="BLOG IGNEAS"/>
         <img class="fuego" src={fuego.src} alt="imagen decorativa de una llama de fuego ">
     </section>
-    <Miembros />
+    <!-- <section class="intro-blog">
+        <h2 class="intro-title"> Bienvenido a nuestra sección de blog. Aquí vas a encontrar noticias y notas sobre nuestro trabajo o algun tema de interes.</h2>
+    </section> -->
+    <LastNews title="Noticias y artículos destacados" />
 </Layout>
 
-
 <style>
-
-    .us-banner{
+    .banner-blog{
         position: relative;
-        background: var(--azul);
         height: 100vh;
         display: flex;
         align-items: end;
+        column-gap: 40px;
         padding: 40px;
+        background: var(--azul);
         overflow: hidden;
-    }
-
-    .title{
-        margin-top: 300px;
     }
 
     .fuego{
@@ -36,9 +34,28 @@ import fuego from '/public/images/imagen-fuego.svg';
         right: -30px;
         width: 600px;
         animation: flicker 4s infinite ;
-        z-index: 0;
     }
 
+    /* .intro-blog{
+    	background: var(--fondo-blanco);
+    	padding: 80px 0;
+    	display: grid;
+    	place-items: center;
+    }
+
+    .intro-title{
+        width: 80%;
+        text-align: center;
+        color: var(--azul);
+    } */
+
+    .new-news{
+        padding: 50px 50px 100px 50px;
+    }
+
+    h2{
+        color: var(--azul);
+    }
 
     /* SMARTPHONE */
     @media screen and (min-width: 375px) and (max-width: 767px){
@@ -79,5 +96,4 @@ import fuego from '/public/images/imagen-fuego.svg';
             transform: rotate(-25deg);
         }
     }
-
 </style>

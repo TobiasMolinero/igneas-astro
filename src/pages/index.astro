@@ -1,7 +1,9 @@
 ---
 import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
-import FrameYoutube from '../components/FrameYoutube.astro';
+import LastEpisode from '../sections/LastEpisode.astro';
+import LastNews from '../sections/LastNews.astro';
+import UpcomingEvents from '../sections/UpcomingEvents.astro';
 ---
 
 <Layout title="Cooperativa IGNEAS - Inicio" description='cooperativa igneas'>
@@ -9,9 +11,9 @@ import FrameYoutube from '../components/FrameYoutube.astro';
 	<section class="intro-index">
 		<h2 class="intro-title">Cooperativa de trabajo, investigación y gestión, nacional y extranjera de las artes sociales</h2>
 	</section>
-	<div style="margin: 40px 0; display:grid; place-items: center;">
-		<FrameYoutube src="https://www.youtube.com/embed/Be8zqnIYZ48?si=2fEJv2hVI_cUFNiE"/>
-	</div>
+    <LastEpisode />
+    <LastNews title='Últimas noticias'/>
+    <UpcomingEvents />
 </Layout>
 
 <style>
@@ -28,6 +30,7 @@ import FrameYoutube from '../components/FrameYoutube.astro';
         color: var(--azul);
     }
 
+
     /* SMARTPHONE */
     @media screen and (min-width: 375px) and (max-width: 767px){
         .intro-index{
@@ -40,7 +43,15 @@ import FrameYoutube from '../components/FrameYoutube.astro';
     }
 
     /* TABLET */
-    @media screen and (min-width: 768px) and (max-width: 1023px){}
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        .intro-index{
+            padding: 40px 10px;
+        }
+
+        .intro-title{
+            width: 100%;
+        }
+    }
 
     /* DESKTOP */
     @media screen and (min-width: 1024px){

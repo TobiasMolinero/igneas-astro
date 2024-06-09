@@ -31,13 +31,13 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
         const openCloseDropBlog = () => {
             if(showDropdownBlog){
                 dropdown_blog.style.display = 'none';
-                icon_dropdown.style.transform = 'rotate(0deg)';
+                icon_dropdown.style.transform = 'rotate(-90deg)';
                 showDropdownBlog = false;
             } else {
                 dropdown_blog.style.display = 'flex';
                 dropdown_blog.style.flexDirection = 'column';
                 dropdown_blog.style.gap = '10px';
-                icon_dropdown.style.transform = 'rotate(-90deg)';
+                icon_dropdown.style.transform = 'rotate(0deg)';
                 showDropdownBlog = true;
             }
         }
@@ -55,15 +55,18 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
     
         item_blog.addEventListener('click', openCloseDropBlog);
 
+        if(window.scrollY > 0){
+            header.classList.add('header-sticked');
+        }
+
         window.addEventListener("scroll", function() {
             // Obtener la posición actual del scroll
             var scrollPosition = window.scrollY || document.documentElement.scrollTop;
             // Agregar o quitar las clases según la posición del scroll
-            if (scrollPosition > 0) {
+            if (scrollPosition > 80) {
                 header.classList.add('header-sticked');
             } else {
                 header.classList.remove('header-sticked');
-
             }
         });
 
@@ -86,7 +89,7 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             </li>
             <li class="menu_item item-blog">
                 <p class="menu_item-link">
-                    Blog
+                    Novedades
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="icon-dropdown" viewBox="0 0 16 16">
                         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
@@ -94,7 +97,7 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
                 <div class="container-dropdown-blog">
                     <div class="dropdown-blog">
                         <p>
-                            <a href="">Noticias</a>
+                            <a href="/blog">Blog</a>
                         </p>
                         <p>
                             <a href="">Eventos</a>
@@ -127,14 +130,14 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             </li>
             <li id="item-blog" class="menu-res_item res-item-blog">
                 <p class="menu-res_item-link">
-                    Blog
-                    <svg id="iconDropdown" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="icon-dropdown" viewBox="0 0 16 16">
+                    Novedades
+                    <svg id="iconDropdown" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                     </svg>
                 </p>
                 <div class="nav-res_dropdown-blog">
                     <p>
-                        <a href="">Noticias</a>
+                        <a href="">Blog</a>
                     </p>
                     <p>
                         <a href="">Eventos</a>
@@ -170,22 +173,32 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
 
 <style>
     .header{
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         padding: 10px 20px;
         background: transparent;
         display: flex;
         justify-content: space-between;
         align-items: center;
         z-index: 10;
-        transition: 0.3s background;
+        transition: 0.3s;
     }
 
     .header-sticked{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
         background: var(--azul);
         box-shadow: 0 0 10px #000000;
+        transition: 0.3s;
     }
 
     .logo{
@@ -196,6 +209,11 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
 
     .logo-img{
         width: 100px;
+    }
+
+    .icon-dropdown{
+            transform: rotate(-90deg);
+            transition: 0.3s transform;
     }
 
     /* SMARTPHONE */
@@ -449,11 +467,6 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
             display: block;
         }
 
-        .icon-dropdown{
-            transform: rotate(-90deg);
-            transition: 0.3s transform;
-        }
-
         .item-blog:hover .icon-dropdown{
             transform: rotate(0deg)
         }
@@ -465,6 +478,10 @@ import logo from '/public/images/logo-igneas-sinfondo.png';
         .dropdown-blog > p a{
             color: var(--azul);
             text-decoration: none;
+        }
+
+        .dropdown-blog > p a:hover{
+            text-decoration: underline;
         }
 
         .btn-login{
