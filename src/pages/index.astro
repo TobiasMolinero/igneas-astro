@@ -6,7 +6,7 @@ import LastNews from '../sections/LastNews.astro';
 import UpcomingEvents from '../sections/UpcomingEvents.astro';
 ---
 
-<Layout title="Cooperativa IGNEAS - Inicio" description='cooperativa igneas'>
+<Layout title="Cooperativa IGNEAS - Inicio" description='cooperativa igneas' notFound={false}>
 	<Hero />
 	<section class="intro-index">
 		<h2 class="intro-title">Cooperativa de trabajo, investigación y gestión, nacional y extranjera de las artes sociales</h2>
@@ -28,6 +28,7 @@ import UpcomingEvents from '../sections/UpcomingEvents.astro';
         width: 50%;
         text-align: center;
         color: var(--azul);
+        font-weight: 600;
     }
 
 

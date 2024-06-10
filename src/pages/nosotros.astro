@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import HeroTitle from '../components/HeroTitle.astro';
 import Miembros from '../sections/Miembros.astro';
-import fuego from '/public/images/imagen-fuego.svg';
+// import fuego from '/public/images/imagen-fuego.svg';
 ---
 
-<Layout title="Conocé un poco mas sobre nosotros - Cooperativa IGNEAS" description='cooperativa igneas'>
+<Layout title="Conocé un poco más sobre nosotros - Cooperativa IGNEAS" description='Conocé mas sobre nosotros, nuestro equipo, objetivos, metas, etc.' notFound={false}>
     <section class="us-banner">
-        <HeroTitle title='CONOCÉ A NUESTRO EQUIPO!'/>
-        <img class="fuego" src={fuego.src} alt="imagen decorativa de una llama de fuego ">
+        <HeroTitle title='CONOCÉ NUESTRO EQUIPO!'/>
+        <!-- <img class="fuego" src={fuego.src} alt="imagen decorativa de una llama de fuego "> -->
     </section>
     <Miembros />
 </Layout>
@@ -30,34 +30,34 @@ import fuego from '/public/images/imagen-fuego.svg';
         margin-top: 300px;
     }
 
-    .fuego{
+    /* .fuego{
         position: absolute;
         bottom: -200px;
         right: -30px;
         width: 600px;
         animation: flicker 4s infinite ;
         z-index: 0;
-    }
+    } */
 
 
     /* SMARTPHONE */
     @media screen and (min-width: 375px) and (max-width: 767px){
-        .fuego{
+        /* .fuego{
             width: 350px;
             bottom: -80px;
             right: -95px;
             z-index: 0;
-        }
+        } */
     }
 
     /* TABLET */
     @media screen and (min-width: 768px) and (max-width: 1023px){
-        .fuego{
+        /* .fuego{
             width: 450px;
             bottom: -100px;
             right: -100px;
             z-index: 0;
-        }
+        } */
     }
 
     /* DESKTOP */

@@ -2,13 +2,13 @@
 import HeroTitle from "../../components/HeroTitle.astro";
 import Layout from "../../layouts/Layout.astro";
 import LastNews from "../../sections/LastNews.astro";
-import fuego from '/public/images/imagen-fuego.svg';
+// import fuego from '/public/images/imagen-fuego.svg';
 ---
 
-<Layout title="blog" description="blogs">
+<Layout title="Blog IGNEAS" description="Enterate de las últimas noticias y articulos sobre arte, cultura, sociales y más." notFound={false}>
     <section class="banner-blog">
         <HeroTitle title="BLOG IGNEAS"/>
-        <img class="fuego" src={fuego.src} alt="imagen decorativa de una llama de fuego ">
+        <!-- <img class="fuego" src={fuego.src} alt="imagen decorativa de una llama de fuego "> -->
     </section>
     <!-- <section class="intro-blog">
         <h2 class="intro-title"> Bienvenido a nuestra sección de blog. Aquí vas a encontrar noticias y notas sobre nuestro trabajo o algun tema de interes.</h2>
@@ -27,14 +27,14 @@ import fuego from '/public/images/imagen-fuego.svg';
         background: var(--azul);
         overflow: hidden;
     }
-
+/* 
     .fuego{
         position: absolute;
         bottom: -200px;
         right: -30px;
         width: 600px;
         animation: flicker 4s infinite ;
-    }
+    } */
 
     /* .intro-blog{
     	background: var(--fondo-blanco);
@@ -59,22 +59,22 @@ import fuego from '/public/images/imagen-fuego.svg';
 
     /* SMARTPHONE */
     @media screen and (min-width: 375px) and (max-width: 767px){
-        .fuego{
+        /* .fuego{
             width: 350px;
             bottom: -80px;
             right: -95px;
             z-index: 0;
-        }
+        } */
     }
 
     /* TABLET */
     @media screen and (min-width: 768px) and (max-width: 1023px){
-        .fuego{
+        /* .fuego{
             width: 450px;
             bottom: -100px;
             right: -100px;
             z-index: 0;
-        }
+        } */
     }
 
     /* DESKTOP */

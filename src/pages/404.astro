@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='Página no encontrada - Cooperativa IGNEAS' description='No se encontró ninguna página relacionada con la ruta que se ingresó en el buscador' notFound={true}>
+    <section class="background">
+        <div class="content">
+            <div class="content-text">
+                <h1>404</h1>
+                <h2>Página no encontrada</h2>
+            </div>
+            <a href="/" class="link">Volver al Inicio</a>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .background{
+        height: 100vh;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.600),
+            rgba(0, 0, 0, 0.400),
+            rgba(0, 0, 0, 0.400),
+            rgba(0, 0, 0, 0.200),
+            transparent
+        ),
+        url('/images/hero-img.webp');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+    
+    .content{
+        margin-top: 60px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 60px;
+    }
+    
+
+    .content-text{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+    .content-text h1{
+        background-image: linear-gradient(
+            to right,
+            var(--amarillo),
+            var(--naranja),
+            var(--magenta)
+        ); 
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    .content-text h2{
+        margin-top: -40px;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 4px #000;
+    }
+
+    .link{
+        display: block;
+        background: linear-gradient(
+        to right,
+            var(--amarillo),
+            var(--naranja),
+            var(--magenta)
+        );
+        text-align: center;
+        color: var(--azul);
+        border: none;
+        padding: 10px 0;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 3px 3px 10px #000000;
+    }
+    
+    /* SMARTPHONE */
+    @media screen and (min-width: 375px) and (max-width: 767px){
+        .content-text h1{
+            font-weight: 600;
+            font-size: 150px;
+        }
+        .content-text h2{
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .link{
+            width: 100%;
+            font-weight: 500;
+        }
+    }
+
+    /* TABLET */
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        .content-text h1{
+            font-weight: 600;
+            font-size: 180px;
+        }
+        .content-text h2{
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .link{
+            width: 100%;
+            font-weight: 500;
+        }
+    }
+
+    /* DESKTOP */
+    @media screen and (min-width: 1024px){
+        .content-text h1{
+            font-weight: 600;
+            font-size: 200px;
+        }
+        .content-text h2{
+            font-size: 50px;
+            font-weight: 500;
+        }
+
+        .link{
+            width: 50%;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .link:hover{
+            scale: 1.05
+        }
+    }
+</style>
