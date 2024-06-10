@@ -17,7 +17,27 @@
 
     .events-title{
         color: var(--azul);
-        font-size: 50px;
         font-weight: 500;
+    }
+
+    /* SMARTPHONE */
+    @media screen and (min-width: 375px) and (max-width: 767px){
+        .events-title{
+            font-size: 30px;
+        }
+    }
+
+    /* TABLET */
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        .events-title{
+            font-size: 40px;
+        }
+    }
+
+    /* DESKTOP */
+    @media screen and (min-width: 1024px){
+        .events-title{
+            font-size: 50px;
+        }
     }
 </style>
